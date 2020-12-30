@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         registerText = findViewById(R.id.tv_create_account);
         btnLogin = findViewById(R.id.btn_login);
-        fillUsername = findViewById(R.id.et_username);
+        fillUsername = findViewById(R.id.et_name);
         fillPassword = findViewById(R.id.et_password);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
