@@ -36,29 +36,31 @@ public class RegisterActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String username = fillUsername.getText().toString();
-                String password = fillPassword.getText().toString();
-
-                if (username.equals("")){
-                    Toast.makeText(RegisterActivity.this, "Username wajib di Isi", Toast.LENGTH_SHORT).show();
-                }else if (password.equals("")){
-                    Toast.makeText(RegisterActivity.this, "Password wajib di Isi", Toast.LENGTH_SHORT).show();
-                }else {
-                    mAuth.createUserWithEmailAndPassword(username, password)
-                            .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
-                                @Override
-                                public void onComplete(@NonNull Task<AuthResult> task) {
-                                    if (task.isSuccessful()){
-                                        FirebaseUser user = mAuth.getCurrentUser();
-                                        Toast.makeText(RegisterActivity.this, "Authentication Successfuly", Toast.LENGTH_SHORT).show();
-                                        Intent goLogin = new Intent(RegisterActivity.this, LoginActivity.class);
-                                        startActivity(goLogin);
-                                    }else {
-                                        Toast.makeText(RegisterActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                }
+                Intent login = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(login);
+//                String username = fillUsername.getText().toString();
+//                String password = fillPassword.getText().toString();
+//
+//                if (username.equals("")){
+//                    Toast.makeText(RegisterActivity.this, "Username wajib di Isi", Toast.LENGTH_SHORT).show();
+//                }else if (password.equals("")){
+//                    Toast.makeText(RegisterActivity.this, "Password wajib di Isi", Toast.LENGTH_SHORT).show();
+//                }else {
+//                    mAuth.createUserWithEmailAndPassword(username, password)
+//                            .addOnCompleteListener(RegisterActivity.this, new OnCompleteListener<AuthResult>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<AuthResult> task) {
+//                                    if (task.isSuccessful()){
+//                                        FirebaseUser user = mAuth.getCurrentUser();
+//                                        Toast.makeText(RegisterActivity.this, "Authentication Successfuly", Toast.LENGTH_SHORT).show();
+//                                        Intent goLogin = new Intent(RegisterActivity.this, LoginActivity.class);
+//                                        startActivity(goLogin);
+//                                    }else {
+//                                        Toast.makeText(RegisterActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+//                                    }
+//                                }
+//                            });
+//                }
             }
         });
         backLogin.setOnClickListener(new View.OnClickListener() {

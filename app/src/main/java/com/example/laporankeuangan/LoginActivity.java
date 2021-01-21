@@ -39,29 +39,31 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               String username = fillUsername.getText().toString();
-               String password = fillPassword.getText().toString();
-
-               if (username.equals("")){
-                   Toast.makeText(LoginActivity.this, "Silahkan masukan username anda", Toast.LENGTH_SHORT).show();
-               }else if (password.equals("")){
-                   Toast.makeText(LoginActivity.this, "Masukan Password Anda", Toast.LENGTH_SHORT).show();
-               }else {
-                   mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                       @Override
-                       public void onComplete(@NonNull Task<AuthResult> task) {
-                           if (task.isSuccessful()){
-                               FirebaseUser user = mAuth.getCurrentUser();
-                               Toast.makeText(LoginActivity.this, "Authentication Successfull", Toast.LENGTH_SHORT).show();
-                               Intent goPayment = new Intent(LoginActivity.this, PaymentActivity.class);
-                               startActivity(goPayment);
-                               finish();
-                           }else {
-                               Toast.makeText(LoginActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
-                           }
-                       }
-                   });
-               }
+                Intent home = new Intent(LoginActivity.this, PaymentActivity.class);
+                startActivity(home);
+//               String username = fillUsername.getText().toString();
+//               String password = fillPassword.getText().toString();
+//
+//               if (username.equals("")){
+//                   Toast.makeText(LoginActivity.this, "Silahkan masukan username anda", Toast.LENGTH_SHORT).show();
+//               }else if (password.equals("")){
+//                   Toast.makeText(LoginActivity.this, "Masukan Password Anda", Toast.LENGTH_SHORT).show();
+//               }else {
+//                   mAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+//                       @Override
+//                       public void onComplete(@NonNull Task<AuthResult> task) {
+//                           if (task.isSuccessful()){
+//                               FirebaseUser user = mAuth.getCurrentUser();
+//                               Toast.makeText(LoginActivity.this, "Authentication Successfull", Toast.LENGTH_SHORT).show();
+//                               Intent goPayment = new Intent(LoginActivity.this, PaymentActivity.class);
+//                               startActivity(goPayment);
+//                               finish();
+//                           }else {
+//                               Toast.makeText(LoginActivity.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
+//                           }
+//                       }
+//                   });
+//               }
             }
         });
 
